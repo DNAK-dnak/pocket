@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pocket-feel"
+version = "0.0.1"
+description = "Feel and timing analysis for contemporary pianists"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Doan Nguyen Anh Khoa" }]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "librosa",
+  "soundfile",
+  "matplotlib",
+]
+
+[project.optional-dependencies]
+notes = ["basic-pitch"]
+reference = ["demucs", "pyloudnorm"]
+dev = ["pytest"]
+
+[project.scripts]
+pocket = "pocket.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
